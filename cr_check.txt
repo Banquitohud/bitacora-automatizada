@@ -1,0 +1,5 @@
+﻿
+No security vulnerability advisories found.
+Using version ^4.0 for maatwebsite/excel
+Using version ^3.1 for barryvdh/laravel-dompdf
+FINISHED_OK

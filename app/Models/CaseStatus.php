@@ -1,0 +1,39 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+class CaseStatus extends Model
+{
+    use HasFactory, SoftDeletes;
+
+    protected $fillable = ['name', 'slug', 'color', 'sort_order', 'is_active', 'is_initial', 'is_closed'];
+
+    protected function casts(): array
+    {
+        return [
+            'is_active' => 'boolean',
+            'is_initial' => 'boolean',
+            'is_closed' => 'boolean',
+            'sort_order' => 'integer',
+        ];
+    }
+
+    public function scopeOrdered($query)
+    {
+        return $query->orderBy('sort_order')->orderBy('name');
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->where('is_active', true);
+    }
+
+    public function scopeClosed($query)
+    {
+        return $query->where('is_closed', true);
+    }
+}
