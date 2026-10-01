@@ -1,0 +1,7 @@
+﻿
+app\Http\Controllers\SettingController.php:41:        abort_unless(auth()->user()?->isAdmin(), 403);
+app\Http\Controllers\SettingController.php:59:        abort_unless(auth()->user()?->isAdmin(), 403);
+app\Http\Controllers\SettingController.php:76:        abort_unless(auth()->user()?->isAdmin(), 403);
+app\Http\Controllers\SettingController.php:96:        abort_unless(auth()->user()?->isAdmin(), 403);
+
+

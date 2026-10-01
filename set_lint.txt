@@ -1,0 +1,9 @@
+﻿php : PHP Fatal error:  Namespace declaration statement has to be the very first statement or after any declare call in the script in app\Http\Controllers\SettingController.php on 
+line 3
+En línea: 1 Carácter: 349
++ ... Set-Content -Path $f -Value $c -Encoding utf8; php -l $f 2>&1 | Out-F ...
++                                                    ~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (PHP Fatal error...r.php on line 3:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Errors parsing app\Http\Controllers\SettingController.php

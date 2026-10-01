@@ -219,12 +219,16 @@ class DailyCaseController extends Controller
 
     private function caseData(Request $request): array
     {
-        $data = $request->only([
+        $raw = $request->only([
             'case_number', 'received_date', 'received_time', 'due_date', 'requester',
             'affected_user', 'position', 'request_type_id', 'application_id', 'profile_id',
             'permission', 'group_id', 'group_family_id', 'priority_id', 'status_id',
             'analyst_id', 'concept', 'result', 'observations', 'comments',
         ]);
+
+        $data = collect($raw)
+            ->map(fn ($value) => ($value === '' || $value === null) ? null : $value)
+            ->toArray();
 
         $data['received_time'] = $data['received_time'] ? Carbon::parse($data['received_time'])->format('H:i:s') : null;
         $data['started_at'] = $request->input('started_at') ? Carbon::parse($request->input('started_at')) : null;

@@ -1,0 +1,6 @@
+﻿
+app\Http\Controllers\SettingController.php:59:        $this->authorize('manage', \App\Models\User::class);
+app\Http\Controllers\SettingController.php:76:        $this->authorize('manage', \App\Models\User::class);
+app\Http\Controllers\SettingController.php:96:        $this->authorize('manage', \App\Models\User::class);
+
+

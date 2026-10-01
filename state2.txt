@@ -1,0 +1,16 @@
+﻿
+FullName                                                                         
+--------                                                                         
+C:\Users\pc\Downloads\bitacora auto\app\Policies\DailyCasePolicy.php             
+C:\Users\pc\Downloads\bitacora auto\app\Policies\ProjectPolicy.php               
+C:\Users\pc\Downloads\bitacora auto\app\Policies\SettingPolicy.php               
+C:\Users\pc\Downloads\bitacora auto\app\Policies\UserPolicy.php                  
+C:\Users\pc\Downloads\bitacora auto\resources\views\welcome.blade.php            
+C:\Users\pc\Downloads\bitacora auto\resources\views\components\badge.blade.php   
+C:\Users\pc\Downloads\bitacora auto\resources\views\components\kpi-card.blade.php
+C:\Users\pc\Downloads\bitacora auto\resources\views\components\nav-link.blade.php
+C:\Users\pc\Downloads\bitacora auto\resources\views\layouts\app.blade.php        
+C:\Users\pc\Downloads\bitacora auto\database\factories\UserFactory.php           
+C:\Users\pc\Downloads\bitacora auto\database\seeders\DatabaseSeeder.php          
+
+

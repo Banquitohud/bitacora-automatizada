@@ -38,7 +38,7 @@ class SettingController extends Controller
 
     public function __construct(private readonly AuditService $audit)
     {
-        $this->authorize('manage', \App\Models\User::class);
+        abort_unless(auth()->user()?->isAdmin(), 403);
     }
 
     public function index(Request $request): View
@@ -56,7 +56,7 @@ class SettingController extends Controller
 
     public function store(Request $request, string $catalog): RedirectResponse
     {
-        $this->authorize('manage', \App\Models\User::class);
+        abort_unless(auth()->user()?->isAdmin(), 403);
 
         $config = self::CATALOGS[$catalog] ?? abort(404);
         $model = $config['model'];
@@ -73,7 +73,7 @@ class SettingController extends Controller
 
     public function update(Request $request, string $catalog, int $id): RedirectResponse
     {
-        $this->authorize('manage', \App\Models\User::class);
+        abort_unless(auth()->user()?->isAdmin(), 403);
 
         $config = self::CATALOGS[$catalog] ?? abort(404);
         $model = $config['model'];
@@ -93,7 +93,7 @@ class SettingController extends Controller
 
     public function destroy(string $catalog, int $id): RedirectResponse
     {
-        $this->authorize('manage', \App\Models\User::class);
+        abort_unless(auth()->user()?->isAdmin(), 403);
 
         $config = self::CATALOGS[$catalog] ?? abort(404);
         $model = $config['model'];
@@ -148,3 +148,5 @@ class SettingController extends Controller
         ];
     }
 }
+
+

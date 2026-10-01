@@ -25,6 +25,7 @@ class DashboardController extends Controller
         $periodRange = $dashboard->resolvePeriod($period, $request->input('from'), $request->input('to'));
 
         $kpis = $dashboard->kpis($periodRange, $analystId);
+        $projectKpis = $dashboard->projectKpis($analystId);
         $productivity = $dashboard->productivity($periodRange, $analystId);
         $charts = $dashboard->charts($periodRange, $analystId);
 
@@ -36,6 +37,7 @@ class DashboardController extends Controller
             'analystId' => $analystId,
             'analysts' => User::query()->where('is_active', true)->orderBy('name')->get(),
             'kpis' => $kpis,
+            'projectKpis' => $projectKpis,
             'productivity' => $productivity,
             'charts' => $charts,
             'recentActivities' => $dashboard->recentActivities(12),

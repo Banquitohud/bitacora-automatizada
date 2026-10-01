@@ -59,6 +59,11 @@ class User extends Authenticatable
         return $this->role === 'analyst';
     }
 
+    public function scopeActive($query)
+    {
+        return $query->where('is_active', true);
+    }
+
     public function assignedCases()
     {
         return $this->hasMany(DailyCase::class, 'analyst_id');

@@ -1,0 +1,1 @@
+﻿No syntax errors detected in C:\Users\pc\Downloads\bitacora auto\app\Http\Controllers\SettingController.php

@@ -130,6 +130,29 @@ class DashboardService
         ];
     }
 
+    public function projectKpis(?int $analystId = null): array
+    {
+        $query = Project::query()->with('status');
+
+        if ($analystId) {
+            $query->where('responsible_id', $analystId);
+        }
+
+        $projects = $query->get();
+
+        $active = $projects->filter(fn ($p) => $p->isActive());
+        $finished = $projects->filter(fn ($p) => $p->isFinished());
+
+        return [
+            'active' => $active->count(),
+            'finished' => $finished->count(),
+            'pending' => $projects->filter(fn ($p) => $p->status?->slug === 'planeado')->count(),
+            'near_due' => $projects->filter(fn ($p) => $p->isNearDue())->count(),
+            'overdue' => $projects->filter(fn ($p) => $p->isOverdue())->count(),
+            'avg_progress' => $active->isNotEmpty() ? round($active->avg('progress')) : 0,
+        ];
+    }
+
     private function countBy($query, string $relation): \Illuminate\Support\Collection
     {
         return (clone $query)
