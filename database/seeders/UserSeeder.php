@@ -15,9 +15,11 @@ class UserSeeder extends Seeder
 
         $users = [
             ['name' => 'Sebastián', 'email' => env('GSI_ADMIN_EMAIL', 'admin@gsilab.local'), 'role' => 'admin'],
-            ['name' => 'Usuario 2', 'email' => env('GSI_USER2_EMAIL', 'usuario2@gsilab.local'), 'role' => 'analyst'],
-            ['name' => 'Usuario 3', 'email' => env('GSI_USER3_EMAIL', 'usuario3@gsilab.local'), 'role' => 'analyst'],
-            ['name' => 'Usuario 4', 'email' => env('GSI_USER4_EMAIL', 'usuario4@gsilab.local'), 'role' => 'analyst'],
+            ['name' => 'Adriana', 'email' => env('GSI_ADMIN_EMAIL2', 'admin2@gsilab.local'), 'role' => 'admin'],
+             ['name' => 'Diego', 'email' => env('GSI_USER2_EMAIL', 'usuario2@gsilab.local'), 'role' => 'analyst'],
+            ['name' => 'Alejandro', 'email' => env('GSI_USER3_EMAIL', 'usuario3@gsilab.local'), 'role' => 'analyst'],
+            ['name' => 'Andres', 'email' => env('GSI_USER4_EMAIL', 'usuario4@gsilab.local'), 'role' => 'analyst'],
+
         ];
 
         foreach ($users as $data) {
