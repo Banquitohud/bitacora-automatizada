@@ -108,3 +108,94 @@
             </div>
         </div>
     </div>
+
+    {{-- Gestión --}}
+    <div class="rounded-xl border border-gray-200 bg-white shadow-sm">
+        <div class="border-b border-gray-100 px-5 py-3">
+            <h3 class="text-sm font-semibold uppercase tracking-wide text-gray-500">Gestión</h3>
+        </div>
+        <div class="grid grid-cols-1 gap-4 p-5 sm:grid-cols-2 lg:grid-cols-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Estado</label>
+                <select name="status_id" class="mt-1 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm">
+                    <option value="">— Seleccionar —</option>
+                    @foreach($statuses as $status)
+                        <option value="{{ $status->id }}" {{ old('status_id', $case->status_id) == $status->id ? 'selected' : '' }}>{{ $status->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Prioridad</label>
+                <select name="priority_id" class="mt-1 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm">
+                    <option value="">— Seleccionar —</option>
+                    @foreach($priorities as $priority)
+                        <option value="{{ $priority->id }}" {{ old('priority_id', $case->priority_id) == $priority->id ? 'selected' : '' }}>{{ $priority->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Analista asignado</label>
+                <select name="analyst_id" class="mt-1 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm">
+                    <option value="">— Sin asignar —</option>
+                    @foreach($analysts as $analyst)
+                        <option value="{{ $analyst->id }}" {{ old('analyst_id', $case->analyst_id) == $analyst->id ? 'selected' : '' }}>{{ $analyst->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Fecha de inicio</label>
+                <input type="datetime-local" name="started_at" value="{{ old('started_at', $case->started_at?->format('Y-m-d\TH:i')) }}" class="mt-1 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Fecha de finalización</label>
+                <input type="datetime-local" name="finished_at" value="{{ old('finished_at', $case->finished_at?->format('Y-m-d\TH:i')) }}" class="mt-1 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm">
+            </div>
+        </div>
+    </div>
+
+    {{-- Concepto GSI --}}
+    <div class="rounded-xl border border-gray-200 bg-white shadow-sm">
+        <div class="border-b border-gray-100 px-5 py-3">
+            <h3 class="text-sm font-semibold uppercase tracking-wide text-gray-500">Concepto GSI</h3>
+        </div>
+        <div class="p-5" x-data>
+            <div class="mb-3 flex flex-wrap items-center gap-2">
+                <span class="text-xs font-medium text-gray-400">Plantilla rápida:</span>
+                <template x-for="campo in ['Usuario:','Cargo:','Aplicación:','Perfil:','Permisos:','Solicitud:','Justificación:','Resultado:']" :key="campo">
+                    <button type="button" class="rounded-full border border-gray-300 px-3 py-1 text-xs text-gray-600 hover:bg-gray-50"
+                            x-text="campo.replace(':', '')"
+                            @click="$refs.concept.value += campo + '\n'"></button>
+                </template>
+            </div>
+            <textarea name="concept" x-ref="concept" rows="6" placeholder="Redacta aquí el análisis y concepto de la solicitud…" class="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm">{{ old('concept', $case->concept) }}</textarea>
+        </div>
+    </div>
+
+    {{-- Resultado y observaciones --}}
+    <div class="rounded-xl border border-gray-200 bg-white shadow-sm">
+        <div class="border-b border-gray-100 px-5 py-3">
+            <h3 class="text-sm font-semibold uppercase tracking-wide text-gray-500">Resultado y observaciones</h3>
+        </div>
+        <div class="grid grid-cols-1 gap-4 p-5 lg:grid-cols-3">
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Resultado</label>
+                <textarea name="result" rows="4" class="mt-1 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm">{{ old('result', $case->result) }}</textarea>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Observaciones</label>
+                <textarea name="observations" rows="4" class="mt-1 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm">{{ old('observations', $case->observations) }}</textarea>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Comentarios internos</label>
+                <textarea name="comments" rows="4" class="mt-1 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm">{{ old('comments', $case->comments) }}</textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex items-center justify-end gap-3">
+        <a href="{{ url()->previous() }}" class="rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50">Cancelar</a>
+        <button type="submit" class="rounded-lg bg-brand-600 px-5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-brand-700">
+            {{ $submitLabel }}
+        </button>
+    </div>
+</form>

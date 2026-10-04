@@ -94,7 +94,8 @@ class ReportService
 
     public function projectReport(array $filters = []): array
     {
-        $query = Project::query()->with(['status', 'priority', 'responsible', 'tasks']);
+        $query = Project::query()->with(['status', 'priority', 'responsible', 'tasks'])
+            ->withCount('cases');
 
         $projects = $query->get();
 

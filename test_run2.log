@@ -1,0 +1,19 @@
+﻿
+   ParseError 
+
+  Unmatched '}'
+
+  at app\Http\Controllers\Controller.php:11
+      7Ôûò abstract class Controller
+      8Ôûò {
+      9Ôûò     use AuthorizesRequests;
+     10Ôûò }
+  Ô×£  11Ôûò }
+     12Ôûò
+
+  1   vendor\composer\ClassLoader.php:427
+
+  2   app\Http\Controllers\DashboardController.php:11
+      Composer\Autoload\ClassLoader::loadClass()
+
+EXIT=1

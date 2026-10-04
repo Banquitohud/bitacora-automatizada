@@ -1,0 +1,47 @@
+﻿
+   PASS  Tests\Unit\ExampleTest
+  Ô£ô that true is true                                                                                                                                                         0.01s  
+
+   PASS  Tests\Feature\AuthTest
+  Ô£ô login screen can be rendered                                                                                                                                              0.52s  
+  Ô£ô user can login with valid credentials                                                                                                                                     0.08s  
+  Ô£ô user cannot login with invalid credentials                                                                                                                                0.23s  
+  Ô£ô inactive user cannot login                                                                                                                                                0.02s  
+  Ô£ô user can logout                                                                                                                                                           0.02s  
+  Ô£ô guest is redirected to login                                                                                                                                              0.02s  
+
+   FAIL  Tests\Feature\AuthorizationTest
+  Ô¿» only admin can access users management                                                                                                                                    2.03s  
+  Ô£ô only admin can access settings                                                                                                                                            0.07s  
+  Ô¿» analyst cannot create users                                                                                                                                               1.42s  
+  Ô£ô dashboard restricts analyst to own data filter                                                                                                                            0.09s  
+
+   FAIL  Tests\Feature\DailyCaseTest
+  Ô¿» analyst can create a case                                                                                                                                                 1.45s  
+  Ô¿» duplicate case number is rejected                                                                                                                                         0.57s  
+  Ô¿» status change is audited                                                                                                                                                  0.57s  
+  Ô¿» closing a case sets finished at                                                                                                                                           0.59s  
+  Ô¿» admin can delete a case using soft delete                                                                                                                                 0.57s  
+  Ô¿» analyst cannot delete a case                                                                                                                                              0.57s  
+  Ô£ô time calculations are correct                                                                                                                                             0.02s  
+  Ô£ô overdue scope detects vencidos                                                                                                                                            0.02s  
+  Ô£ô semaforo flag returns red for overdue case                                                                                                                                0.02s  
+
+   FAIL  Tests\Feature\ExampleTest
+  Ô¿» the application returns a successful response                                                                                                                             0.02s  
+
+   FAIL  Tests\Feature\ImportExportTest
+  Ô£ô export csv returns file                                                                                                                                                   0.03s  
+  Ô¿» export xlsx returns file                                                                                                                                                  0.64s  
+  Ô£ô export pdf returns file                                                                                                                                                   0.28s  
+  Ô¿» import preview shows valid and duplicate rows                                                                                                                             1.45s  
+  Ô£ô import store imports valid rows and skips duplicates                                                                                                                      0.02s  
+
+   FAIL  Tests\Feature\ProjectTest
+  Ô¿» user can create a project                                                                                                                                                 0.56s  
+  Ô¿» project progress must be between 0 and 100                                                                                                                                0.56s  
+  Ô¿» task creation updates project progress                                                                                                                                    1.06s  
+  Ô£ô project is overdue when estimated date passed                                                                                                                             0.02s  
+  Ô£ô task is overdue detection                                                                                                                                                 0.02s  
+  Ô¿» admin can delete project with soft delete                                                                                                                                 0.58s  
+  Ô¿» analyst can only update own projects                                                                                                                                      0.55s  

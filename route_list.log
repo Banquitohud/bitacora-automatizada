@@ -1,0 +1,55 @@
+﻿
+  GET|HEAD        / ............................................................................................................................................. routes/web.php:17
+  GET|HEAD        calendar .............................................................................................................. calendar.index ÔÇ║ CalendarController@index
+  GET|HEAD        calendar/events ..................................................................................................... calendar.events ÔÇ║ CalendarController@events
+  POST            daily-cases ....................................................................................................... daily-cases.store ÔÇ║ DailyCaseController@store
+  GET|HEAD        daily-cases ....................................................................................................... daily-cases.index ÔÇ║ DailyCaseController@index
+  GET|HEAD        daily-cases/create .............................................................................................. daily-cases.create ÔÇ║ DailyCaseController@create
+  PUT|PATCH       daily-cases/{daily_case} ........................................................................................ daily-cases.update ÔÇ║ DailyCaseController@update
+  DELETE          daily-cases/{daily_case} ...................................................................................... daily-cases.destroy ÔÇ║ DailyCaseController@destroy
+  GET|HEAD        daily-cases/{daily_case} ............................................................................................ daily-cases.show ÔÇ║ DailyCaseController@show
+  POST            daily-cases/{daily_case}/close .................................................................................... daily-cases.close ÔÇ║ DailyCaseController@close
+  GET|HEAD        daily-cases/{daily_case}/edit ....................................................................................... daily-cases.edit ÔÇ║ DailyCaseController@edit
+  POST            daily-cases/{daily_case}/take ....................................................................................... daily-cases.take ÔÇ║ DailyCaseController@take
+  GET|HEAD        dashboard ....................................................................................................................... dashboard ÔÇ║ DashboardController
+  GET|HEAD        import .................................................................................................................... import.index ÔÇ║ ImportController@index
+  POST            import/preview ........................................................................................................ import.preview ÔÇ║ ImportController@preview
+  POST            import/store .............................................................................................................. import.store ÔÇ║ ImportController@store
+  GET|HEAD        login .......................................................................................................................... login ÔÇ║ AuthController@showLogin
+  POST            login ....................................................................................................................... login.submit ÔÇ║ AuthController@login
+  POST            logout ........................................................................................................................... logout ÔÇ║ AuthController@logout
+  GET|HEAD        notifications ................................................................................................ notifications.index ÔÇ║ NotificationController@index
+  POST            notifications/read ......................................................................................... notifications.read ÔÇ║ NotificationController@markRead
+  POST            notifications/read/{notification} ...................................................................... notifications.read.one ÔÇ║ NotificationController@markRead
+  DELETE          notifications/{notification} ............................................................................. notifications.destroy ÔÇ║ NotificationController@destroy
+  GET|HEAD        projects ............................................................................................................... projects.index ÔÇ║ ProjectController@index
+  POST            projects ............................................................................................................... projects.store ÔÇ║ ProjectController@store
+  GET|HEAD        projects/create ...................................................................................................... projects.create ÔÇ║ ProjectController@create
+  GET|HEAD        projects/{project} ....................................................................................................... projects.show ÔÇ║ ProjectController@show
+  PUT|PATCH       projects/{project} ................................................................................................... projects.update ÔÇ║ ProjectController@update
+  DELETE          projects/{project} ................................................................................................. projects.destroy ÔÇ║ ProjectController@destroy
+  GET|HEAD        projects/{project}/edit .................................................................................................. projects.edit ÔÇ║ ProjectController@edit
+  POST            projects/{project}/tasks ...................................................................................... project-tasks.store ÔÇ║ ProjectTaskController@store
+  PUT             projects/{project}/tasks/{task} ............................................................................. project-tasks.update ÔÇ║ ProjectTaskController@update
+  DELETE          projects/{project}/tasks/{task} ........................................................................... project-tasks.destroy ÔÇ║ ProjectTaskController@destroy
+  GET|HEAD        reports .................................................................................................................. reports.index ÔÇ║ ReportController@index
+  GET|HEAD        reports/export/{format} ................................................................................................ reports.export ÔÇ║ ExportController@export
+  GET|HEAD        reports/monthly ...................................................................................................... reports.monthly ÔÇ║ ReportController@monthly
+  GET|HEAD        reports/monthly/pdf ........................................................................................... reports.monthly.pdf ÔÇ║ ExportController@monthlyPdf
+  GET|HEAD        settings ............................................................................................................... settings.index ÔÇ║ SettingController@index
+  POST            settings/{catalog} ..................................................................................................... settings.store ÔÇ║ SettingController@store
+  PUT             settings/{catalog}/{id} .............................................................................................. settings.update ÔÇ║ SettingController@update
+  DELETE          settings/{catalog}/{id} ............................................................................................ settings.destroy ÔÇ║ SettingController@destroy
+  GET|HEAD        storage/{path} .............................................. storage.local ÔÇ║ vendor/laravel/framework/src/Illuminate/Filesystem/FilesystemServiceProvider.php:98
+  PUT             storage/{path} ...................................... storage.local.upload ÔÇ║ vendor/laravel/framework/src/Illuminate/Filesystem/FilesystemServiceProvider.php:106
+  GET|HEAD        up .................................................................. vendor/laravel/framework/src/Illuminate/Foundation/Configuration/ApplicationBuilder.php:219
+  GET|HEAD        users ........................................................................................................................ users.index ÔÇ║ UserController@index
+  POST            users ........................................................................................................................ users.store ÔÇ║ UserController@store
+  GET|HEAD        users/create ............................................................................................................... users.create ÔÇ║ UserController@create
+  PUT             users/{user} ............................................................................................................... users.update ÔÇ║ UserController@update
+  DELETE          users/{user} ............................................................................................................. users.destroy ÔÇ║ UserController@destroy
+  GET|HEAD        users/{user}/edit .............................................................................................................. users.edit ÔÇ║ UserController@edit
+
+                                                                                                                                                                Showing [50] routes
+
+EXIT=0
