@@ -1,0 +1,21 @@
+﻿   FAILED  Tests\Feature\ReportTest > reports page loads for analyst                                                                                                                 
+Failed asserting that 500 is identical to 200.
+ErrorException: Undefined array key "analyst_id" in C:\Users\pc\Downloads\bitacora auto\storage\framework\views\11cff926ef951205b24f5e870780cc1a.php:32
+Next Illuminate\View\ViewException: Undefined array key "analyst_id" (View: C:\Users\pc\Downloads\bitacora auto\resources\views\reports\index.blade.php) in C:\Users\pc\Downloads\bitacora auto\storage\framework\views\11cff926ef951205b24f5e870780cc1a.php:32
+   FAILED  Tests\Feature\ReportTest > case filters apply to report query                                                                                                             
+Failed asserting that 500 is identical to 200.
+ErrorException: Undefined array key "status_id" in C:\Users\pc\Downloads\bitacora auto\storage\framework\views\11cff926ef951205b24f5e870780cc1a.php:41
+Next Illuminate\View\ViewException: Undefined array key "status_id" (View: C:\Users\pc\Downloads\bitacora auto\resources\views\reports\index.blade.php) in C:\Users\pc\Downloads\bitacora auto\storage\framework\views\11cff926ef951205b24f5e870780cc1a.php:41
+   FAILED  Tests\Feature\ReportTest > projects appear in reports                                                                                                                     
+Failed asserting that 500 is identical to 200.
+ErrorException: Undefined array key "analyst_id" in C:\Users\pc\Downloads\bitacora auto\storage\framework\views\11cff926ef951205b24f5e870780cc1a.php:32
+Next Illuminate\View\ViewException: Undefined array key "analyst_id" (View: C:\Users\pc\Downloads\bitacora auto\resources\views\reports\index.blade.php) in C:\Users\pc\Downloads\bitacora auto\storage\framework\views\11cff926ef951205b24f5e870780cc1a.php:32
+   FAILED  Tests\Feature\ImportExportTest > export xlsx returns file                                                                                                                 
+Failed asserting that 500 is identical to 200.
+TypeError: App\Http\Controllers\ExportController::export(): Return value must be of type Illuminate\Http\Response|Symfony\Component\HttpFoundation\StreamedResponse, Symfony\Component\HttpFoundation\BinaryFileResponse returned in C:\Users\pc\Downloads\bitacora auto\app\Http\Controllers\ExportController.php:30
+   FAILED  Tests\Feature\ImportExportTest > import preview shows valid and duplicate rows                                                                                            
+Failed asserting that 500 is identical to 200.
+TypeError: Maatwebsite\Excel\Excel::toArray(): Argument #1 ($import) must be of type Maatwebsite\Excel\Concerns\Import, stdClass given, called in C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php on line 363 and defined in C:\Users\pc\Downloads\bitacora auto\vendor\maatwebsite\excel\src\Excel.php:143
+#0 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(363): Maatwebsite\Excel\Excel->toArray()
+Maatwebsite\Excel\Excel::toArray(): Argument #1 ($import) must be of type Maatwebsite\Excel\Concerns\Import, stdClass given, called in C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php on line 363
+  Tests:    5 failed, 6 passed (15 assertions)

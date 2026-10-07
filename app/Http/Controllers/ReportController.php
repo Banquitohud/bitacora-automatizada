@@ -20,7 +20,16 @@ class ReportController extends Controller
 
     public function index(Request $request): View
     {
-        $filters = $request->only(['from', 'to', 'analyst_id', 'status_id', 'request_type_id', 'application_id', 'priority_id', 'project_id']);
+        $filters = array_merge([
+            'from' => null,
+            'to' => null,
+            'analyst_id' => null,
+            'status_id' => null,
+            'request_type_id' => null,
+            'application_id' => null,
+            'priority_id' => null,
+            'project_id' => null,
+        ], $request->only(['from', 'to', 'analyst_id', 'status_id', 'request_type_id', 'application_id', 'priority_id', 'project_id']));
 
         $flow = $this->report->flowReport($filters);
         $productivity = $this->report->productivityReport($filters);

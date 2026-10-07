@@ -19,11 +19,18 @@ class ProjectController extends Controller
 {
     public function __construct(private readonly AuditService $audit)
     {
-        $this->authorizeResource(Project::class, 'project');
     }
 
     public function index(Request $request): View
     {
+        $this->authorize('viewAny', Project::class);
+
+        $filters = array_merge([
+            'search' => null,
+            'project_status_id' => null,
+            'responsible_id' => null,
+        ], $request->only(['search', 'project_status_id', 'responsible_id']));
+
         $query = Project::query()
             ->with(['status', 'priority', 'responsible'])
             ->when($request->input('search'), fn ($q, $s) => $q->where('name', 'like', "%{$s}%")->orWhere('code', 'like', "%{$s}%"))
@@ -33,7 +40,7 @@ class ProjectController extends Controller
 
         return view('projects.index', [
             'projects' => $query->paginate(12)->withQueryString(),
-            'filters' => $request->only(['search', 'project_status_id', 'responsible_id']),
+            'filters' => $filters,
             'statuses' => ProjectStatus::active()->ordered()->get(),
             'users' => User::query()->where('is_active', true)->orderBy('name')->get(),
         ]);
@@ -41,11 +48,15 @@ class ProjectController extends Controller
 
     public function create(): View
     {
+        $this->authorize('create', Project::class);
+
         return $this->formView(new Project(), 'projects.create');
     }
 
     public function store(StoreProjectRequest $request): RedirectResponse
     {
+        $this->authorize('create', Project::class);
+
         $project = DB::transaction(function () use ($request) {
             $project = Project::create($request->validated() + [
                 'created_by' => auth()->id(),
@@ -64,6 +75,8 @@ class ProjectController extends Controller
 
     public function show(Project $project): View
     {
+        $this->authorize('view', $project);
+
         $project->load(['status', 'priority', 'responsible', 'tasks.status', 'tasks.priority', 'tasks.responsible', 'cases.status']);
 
         $history = Audit::query()
@@ -85,11 +98,15 @@ class ProjectController extends Controller
 
     public function edit(Project $project): View
     {
+        $this->authorize('update', $project);
+
         return $this->formView($project, 'projects.edit');
     }
 
     public function update(UpdateProjectRequest $request, Project $project): RedirectResponse
     {
+        $this->authorize('update', $project);
+
         $old = $project->getAttributes();
 
         DB::transaction(function () use ($request, $project, $old) {
@@ -105,6 +122,8 @@ class ProjectController extends Controller
 
     public function destroy(Project $project): RedirectResponse
     {
+        $this->authorize('delete', $project);
+
         $this->audit->deleted($project, 'el proyecto "'.$project->name.'"');
         $project->delete();
 

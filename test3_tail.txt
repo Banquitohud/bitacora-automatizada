@@ -1,0 +1,60 @@
+﻿#28 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Routing\Router.php(800): Illuminate\Routing\Router->runRouteWithinStack()
+#29 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Routing\Router.php(764): Illuminate\Routing\Router->runRoute()
+#30 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Routing\Router.php(753): Illuminate\Routing\Router->dispatchToRoute()
+#31 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(200): Illuminate\Routing\Router->dispatch()
+#32 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Illuminate\Foundation\Http\Kernel->{closure:Illuminate\Foundation\Http\Kernel::dispatchToRouter():197}()
+#33 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->{closure:Illuminate\Pipeline\Pipeline::prepareDestination():178}()
+#34 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php(31): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle()
+#35 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull->handle()
+#36 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}()
+#37 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php(51): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle()
+#38 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\TrimStrings->handle()
+#39 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Http\Middleware\ValidatePostSize.php(27): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}()
+#40 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\ValidatePostSize->handle()
+#41 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php(109): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}()
+#42 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance->handle()
+#43 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Http\Middleware\HandleCors.php(61): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}()
+#44 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\HandleCors->handle()
+#45 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php(58): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}()
+#46 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\TrustProxies->handle()
+#47 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\InvokeDeferredCallbacks.php(22): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}()
+#48 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\InvokeDeferredCallbacks->handle()
+#49 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Http\Middleware\ValidatePathEncoding.php(26): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}()
+#50 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\ValidatePathEncoding->handle()
+#51 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}()
+#52 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(175): Illuminate\Pipeline\Pipeline->then()
+#53 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(144): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter()
+#54 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Foundation\Testing\Concerns\MakesHttpRequests.php(607): Illuminate\Foundation\Http\Kernel->handle()
+#55 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Foundation\Testing\Concerns\MakesHttpRequests.php(368): Illuminate\Foundation\Testing\TestCase->call()
+#56 C:\Users\pc\Downloads\bitacora auto\tests\Feature\ReportTest.php(115): Illuminate\Foundation\Testing\TestCase->get()
+#57 C:\Users\pc\Downloads\bitacora auto\vendor\phpunit\phpunit\src\Framework\TestCase.php(1667): Tests\Feature\ReportTest->test_projects_appear_in_reports()
+#58 C:\Users\pc\Downloads\bitacora auto\vendor\phpunit\phpunit\src\Framework\TestCase.php(519): PHPUnit\Framework\TestCase->runTest()
+#59 C:\Users\pc\Downloads\bitacora auto\vendor\phpunit\phpunit\src\Framework\TestRunner\TestRunner.php(87): PHPUnit\Framework\TestCase->runBare()
+#60 C:\Users\pc\Downloads\bitacora auto\vendor\phpunit\phpunit\src\Framework\TestCase.php(365): PHPUnit\Framework\TestRunner->run()
+#61 C:\Users\pc\Downloads\bitacora auto\vendor\phpunit\phpunit\src\Framework\TestSuite.php(369): PHPUnit\Framework\TestCase->run()
+#62 C:\Users\pc\Downloads\bitacora auto\vendor\phpunit\phpunit\src\Framework\TestSuite.php(369): PHPUnit\Framework\TestSuite->run()
+#63 C:\Users\pc\Downloads\bitacora auto\vendor\phpunit\phpunit\src\Framework\TestSuite.php(369): PHPUnit\Framework\TestSuite->run()
+#64 C:\Users\pc\Downloads\bitacora auto\vendor\phpunit\phpunit\src\TextUI\TestRunner.php(64): PHPUnit\Framework\TestSuite->run()
+#65 C:\Users\pc\Downloads\bitacora auto\vendor\phpunit\phpunit\src\TextUI\Application.php(211): PHPUnit\TextUI\TestRunner->run()
+#66 C:\Users\pc\Downloads\bitacora auto\vendor\phpunit\phpunit\phpunit(104): PHPUnit\TextUI\Application->run()
+#67 {main}
+
+----------------------------------------------------------------------------------
+
+Undefined array key "analyst_id" (View: C:\Users\pc\Downloads\bitacora auto\resources\views\reports\index.blade.php)
+
+  at tests\Feature\ReportTest.php:117
+    113Ôûò         ]);
+    114Ôûò 
+    115Ôûò         $response = $this->actingAs($user)->get(route('reports.index'));
+    116Ôûò 
+  Ô×£ 117Ôûò         $response->assertOk();
+    118Ôûò         $response->assertSee('Proyecto reporte');
+    119Ôûò     }
+    120Ôûò }
+
+
+  Tests:    18 failed, 21 passed (59 assertions)
+  Duration: 12.33s
+
+EXIT=1

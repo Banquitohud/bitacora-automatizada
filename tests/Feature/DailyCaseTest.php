@@ -86,7 +86,7 @@ class DailyCaseTest extends TestCase
             'received_date' => now()->toDateString(),
             'status_id' => $this->statusEnAnalisis->id,
             'analyst_id' => $user->id,
-        ]);
+        ])->assertRedirect();
 
         $this->assertDatabaseHas('audits', [
             'auditable_id' => $case->id,

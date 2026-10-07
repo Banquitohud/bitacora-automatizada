@@ -13,11 +13,12 @@ class UserController extends Controller
 {
     public function __construct(private readonly AuditService $audit)
     {
-        $this->authorizeResource(User::class, 'user');
     }
 
     public function index(): View
     {
+        $this->authorize('viewAny', User::class);
+
         return view('users.index', [
             'users' => User::query()->orderBy('name')->get(),
         ]);
@@ -25,11 +26,15 @@ class UserController extends Controller
 
     public function create(): View
     {
+        $this->authorize('create', User::class);
+
         return view('users.form', ['user' => new User()]);
     }
 
     public function store(StoreUserRequest $request): RedirectResponse
     {
+        $this->authorize('create', User::class);
+
         $user = User::create($request->validated());
 
         $this->audit->created($user, 'el usuario "'.$user->name.'"');
@@ -41,11 +46,15 @@ class UserController extends Controller
 
     public function edit(User $user): View
     {
+        $this->authorize('update', $user);
+
         return view('users.form', ['user' => $user]);
     }
 
     public function update(UpdateUserRequest $request, User $user): RedirectResponse
     {
+        $this->authorize('update', $user);
+
         $old = $user->getAttributes();
 
         $data = $request->validated();
@@ -64,6 +73,8 @@ class UserController extends Controller
 
     public function destroy(User $user): RedirectResponse
     {
+        $this->authorize('delete', $user);
+
         if ($user->id === auth()->id()) {
             return back()->withErrors(['user' => 'No puedes eliminar tu propio usuario.']);
         }

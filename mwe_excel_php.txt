@@ -1,0 +1,60 @@
+﻿        $response   = $this->reader->read($import, $filePath, $readerType, $disk);
+
+        if ($response instanceof PendingDispatch || $response instanceof PendingBatch) {
+            return $response;
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return array<array-key, array<int, array<array-key, mixed>>>
+     */
+    public function toArray(Import $import, string|UploadedFile $filePath, ?string $disk = null, ?string $readerType = null): array
+    {
+        $readerType = FileTypeDetector::detect($filePath, $readerType);
+
+        return $this->reader->toArray($import, $filePath, $readerType, $disk);
+    }
+
+    /**
+     * @return Collection<array-key, Collection<int, Collection<array-key, mixed>>>
+     */
+    public function toCollection(?Import $import, string|UploadedFile $filePath, ?string $disk = null, ?string $readerType = null): Collection
+    {
+        $readerType = FileTypeDetector::detect($filePath, $readerType);
+
+        return $this->reader->toCollection($import, $filePath, $readerType, $disk);
+    }
+
+    public function queueImport(ShouldQueue&Import $import, string|UploadedFile $filePath, ?string $disk = null, ?string $readerType = null): PendingDispatch|PendingBatch
+    {
+        $response = $this->import($import, $filePath, $disk, $readerType);
+
+        // A ShouldQueue import always yields a pending dispatch or batch; the
+        // reader throws before reaching this point when it cannot be queued.
+        assert($response instanceof PendingDispatch || $response instanceof PendingBatch);
+
+        return $response;
+    }
+
+    /**
+     * Register a custom export source handler.
+     *
+     * The handler may implement SheetSourceHandler (sync), QueuedSheetSourceHandler
+     * (queued), or both. Pass a class name to have it resolved lazily from the
+     * service container, or pass an instance directly.
+     *
+     * @param  SheetSourceHandler|QueuedSheetSourceHandler|class-string  ...$handlers
+     */
+    public function registerSourceHandler(SheetSourceHandler|QueuedSheetSourceHandler|string ...$handlers): void
+    {
+        $this->handlerRegistry->register(...$handlers);
+    }
+
+    /**
+     * @throws Exception
+     */
+    protected function export(Export $export, string $fileName, ?string $writerType = null): TemporaryFile
+    {
+        $writerType = FileTypeDetector::detectStrict($fileName, $writerType);

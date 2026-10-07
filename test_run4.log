@@ -1,0 +1,306 @@
+﻿
+   PASS  Tests\Unit\ExampleTest
+  Ô£ô that true is true                                                                                                                                                         0.01s  
+
+   PASS  Tests\Feature\AuthTest
+  Ô£ô login screen can be rendered                                                                                                                                              0.61s  
+  Ô£ô user can login with valid credentials                                                                                                                                     0.08s  
+  Ô£ô user cannot login with invalid credentials                                                                                                                                0.22s  
+  Ô£ô inactive user cannot login                                                                                                                                                0.03s  
+  Ô£ô user can logout                                                                                                                                                           0.03s  
+  Ô£ô guest is redirected to login                                                                                                                                              0.03s  
+
+   PASS  Tests\Feature\AuthorizationTest
+  Ô£ô only admin can access users management                                                                                                                                    0.10s  
+  Ô£ô only admin can access settings                                                                                                                                            0.04s  
+  Ô£ô analyst cannot create users                                                                                                                                               0.04s  
+  Ô£ô dashboard restricts analyst to own data filter                                                                                                                            0.08s  
+
+   FAIL  Tests\Feature\DailyCaseTest
+  Ô¿» analyst can create a case                                                                                                                                                 0.06s  
+  Ô£ô duplicate case number is rejected                                                                                                                                         0.02s  
+  Ô¿» status change is audited                                                                                                                                                  2.14s  
+  Ô£ô closing a case sets finished at                                                                                                                                           0.03s  
+  Ô£ô admin can delete a case using soft delete                                                                                                                                 0.02s  
+  Ô£ô analyst cannot delete a case                                                                                                                                              0.02s  
+  Ô£ô time calculations are correct                                                                                                                                             0.02s  
+  Ô£ô overdue scope detects vencidos                                                                                                                                            0.02s  
+  Ô£ô semaforo flag returns red for overdue case                                                                                                                                0.02s  
+
+   PASS  Tests\Feature\ExampleTest
+  Ô£ô the application redirects unauthenticated users to login                                                                                                                  0.02s  
+
+   FAIL  Tests\Feature\ImportExportTest
+  Ô£ô export csv returns file                                                                                                                                                   0.02s  
+  Ô£ô export xlsx returns file                                                                                                                                                  0.15s  
+  Ô£ô export pdf returns file                                                                                                                                                   0.26s  
+  Ô¿» import preview shows valid and duplicate rows                                                                                                                             0.10s  
+  Ô£ô import store imports valid rows and skips duplicates                                                                                                                      0.02s  
+
+   PASS  Tests\Feature\ProjectTest
+  Ô£ô user can create a project                                                                                                                                                 0.03s  
+  Ô£ô project progress must be between 0 and 100                                                                                                                                0.02s  
+  Ô£ô task creation updates project progress                                                                                                                                    0.03s  
+  Ô£ô project is overdue when estimated date passed                                                                                                                             0.02s  
+  Ô£ô task is overdue detection                                                                                                                                                 0.02s  
+  Ô£ô admin can delete project with soft delete                                                                                                                                 0.02s  
+  Ô£ô analyst can only update own projects                                                                                                                                      0.03s  
+
+   PASS  Tests\Feature\ReportTest
+  Ô£ô reports page loads for analyst                                                                                                                                            0.04s  
+  Ô£ô dashboard computes kpis from database                                                                                                                                     0.04s  
+  Ô£ô dashboard shows my cases section                                                                                                                                          0.04s  
+  Ô£ô monthly report loads                                                                                                                                                      0.04s  
+  Ô£ô case filters apply to report query                                                                                                                                        0.04s  
+  Ô£ô projects appear in reports                                                                                                                                                0.03s  
+  ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ  
+   FAILED  Tests\Feature\DailyCaseTest > analyst can create a case                                                                                                                   
+  Failed asserting that null is not null.
+
+  at tests\Feature\DailyCaseTest.php:45
+     41Ôûò         $this->assertDatabaseHas('daily_cases', ['case_number' => 'TCK-100']);
+     42Ôûò 
+     43Ôûò         $case = DailyCase::where('case_number', 'TCK-100')->first();
+     44Ôûò         $this->assertNotNull($case->internal_id);
+  Ô×£  45Ôûò         $this->assertNotNull($case->created_by);
+     46Ôûò 
+     47Ôûò         $this->assertDatabaseHas('audits', [
+     48Ôûò             'auditable_type' => DailyCase::class,
+     49Ôûò             'auditable_id' => $case->id,
+
+  1   tests\Feature\DailyCaseTest.php:45
+
+  ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ  
+   FAILED  Tests\Feature\DailyCaseTest > status change is audited                                                                                                                    
+  Failed asserting that a row in the table [audits] matches the attributes {
+    "auditable_id": 1,
+    "action": "status_changed"
+}.
+
+The table is empty.
+
+  at tests\Feature\DailyCaseTest.php:91
+     87Ôûò             'status_id' => $this->statusEnAnalisis->id,
+     88Ôûò             'analyst_id' => $user->id,
+     89Ôûò         ]);
+     90Ôûò 
+  Ô×£  91Ôûò         $this->assertDatabaseHas('audits', [
+     92Ôûò             'auditable_id' => $case->id,
+     93Ôûò             'action' => 'status_changed',
+     94Ôûò         ]);
+     95Ôûò     }
+
+  ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ  
+   FAILED  Tests\Feature\ImportExportTest > import preview shows valid and duplicate rows                                                                                            
+  Expected: <!DOCTYPE html>\r\n
+<html lang="es" class="h-full bg-gray-100">\r\n
+<head>\r\n
+    <meta charset="utf-8">\r\n
+    <meta name="viewport" content="width=device-width, initial-scale=1">\r\n
+    <meta name="csrf-token" content="Zc7omraPlkPsrt67cM5apcyOp3pM5YyUuEDihsK9">\r\n
+    <title>Importar casos ÔÇö Bit├ícora GSI</title>\r\n
+    <link rel="preload" as="style" href="http://localhost/build/assets/app-6ZKyEGy-.css" /><link rel="modulepreload" as="script" href="http://localhost/build/assets/app-DtvP0olV.js" /><link rel="stylesheet" href="http://localhost/build/assets/app-6ZKyEGy-.css" /><script type="module" src="http://localhost/build/assets/app-DtvP0olV.js"></script></head>\r\n
+<body class="h-full font-sans text-gray-800 antialiased" x-data="{ sidebarOpen: true, notifOpen: false }">\r\n
+\r\n
+    <div class="min-h-full lg:flex">\r\n
+\r\n
+        <!-- ===== Sidebar ===== -->\r\n
+        <aside class="fixed inset-y-0 left-0 z-40 w-64 transform bg-gray-900 text-gray-200 transition-transform duration-200 lg:translate-x-0"\r\n
+               :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'">\r\n
+\r\n
+            <div class="flex h-16 items-center justify-between border-b border-gray-800 px-5">\r\n
+                <a href="http://localhost/dashboard" class="flex items-center gap-3">\r\n
+                    <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-600 text-white font-bold">G</span>\r\n
+                    <div>\r\n
+                        <p class="text-sm font-semibold leading-tight text-white">Bit├ícora GSI</p>\r\n
+                        <p class="text-[11px] text-gray-400">Gesti├│n de accesos</p>\r\n
+                    </div>\r\n
+                </a>\r\n
+            </div>\r\n
+\r\n
+            <nav class="mt-4 space-y-1 px-3 text-sm">\r\n
+                <a href="http://localhost/dashboard"\r\n
+   class="flex items-center gap-3 rounded-lg px-3 py-2 font-medium transition-colors text-gray-300 hover:bg-gray-800 hover:text-white">\r\n
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l9-9 9 9M5 10v10a1 1 0 001 1h3a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1h3a1 1 0 001-1V10"/></svg>\r\n
+    <span>Dashboard</span>\r\n
+</a>                <a href="http://localhost/daily-cases"\r\n
+   class="flex items-center gap-3 rounded-lg px-3 py-2 font-medium transition-colors text-gray-300 hover:bg-gray-800 hover:text-white">\r\n
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"/></svg>\r\n
+    <span>Flujo Diario</span>\r\n
+</a>                <a href="http://localhost/projects"\r\n
+   class="flex items-center gap-3 rounded-lg px-3 py-2 font-medium transition-colors text-gray-300 hover:bg-gray-800 hover:text-white">\r\n
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V7z"/></svg>\r\n
+    <span>Proyectos</span>\r\n
+</a>                <a href="http://localhost/reports"\r\n
+   class="flex items-center gap-3 rounded-lg px-3 py-2 font-medium transition-colors text-gray-300 hover:bg-gray-800 hover:text-white">\r\n
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>\r\n
+    <span>Reportes</span>\r\n
+</a>                <a href="http://localhost/calendar"\r\n
+   class="flex items-center gap-3 rounded-lg px-3 py-2 font-medium transition-colors text-gray-300 hover:bg-gray-800 hover:text-white">\r\n
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>\r\n
+    <span>Calendario</span>\r\n
+</a>                <a href="http://localhost/import"\r\n
+   class="flex items-center gap-3 rounded-lg px-3 py-2 font-medium transition-colors bg-brand-600 text-white">\r\n
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>\r\n
+    <span>Importar casos</span>\r\n
+</a>\r\n
+                            </nav>\r\n
+\r\n
+            <div class="absolute bottom-0 left-0 right-0 border-t border-gray-800 p-4">\r\n
+                <div class="flex items-center gap-3">\r\n
+                    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-brand-600 text-sm font-bold text-white">\r\n
+                        D\r\n
+                    </div>\r\n
+                    <div class="min-w-0 flex-1">\r\n
+                        <p class="truncate text-sm font-medium text-white">Dr. Harley Wolff DDS</p>\r\n
+                        <p class="text-xs text-gray-400">Analista</p>\r\n
+                    </div>\r\n
+                    <form method="POST" action="http://localhost/logout">\r\n
+                        <input type="hidden" name="_token" value="Zc7omraPlkPsrt67cM5apcyOp3pM5YyUuEDihsK9" autocomplete="off">                        <button type="submit" title="Cerrar sesi├│n" class="text-gray-400 hover:text-white">\r\n
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>\r\n
+                        </button>\r\n
+                    </form>\r\n
+                </div>\r\n
+            </div>\r\n
+        </aside>\r\n
+\r\n
+        <!-- ===== Contenido ===== -->\r\n
+        <div class="flex min-h-screen flex-1 flex-col lg:pl-64">\r\n
+\r\n
+            <!-- Topbar -->\r\n
+            <header class="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-gray-200 bg-white px-4 sm:px-6">\r\n
+                <div class="flex items-center gap-3">\r\n
+                    <button @click="sidebarOpen = !sidebarOpen" class="rounded-lg p-2 text-gray-500 hover:bg-gray-100 lg:hidden">\r\n
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>\r\n
+                    </button>\r\n
+                    <h1 class="text-lg font-semibold text-gray-900">Vista previa de importaci├│n</h1>\r\n
+                </div>\r\n
+\r\n
+                <div class="flex items-center gap-2">\r\n
+                    <!-- Notificaciones -->\r\n
+                    <div class="relative" @click.outside="notifOpen = false">\r\n
+                        <button @click="notifOpen = !notifOpen" class="relative rounded-lg p-2 text-gray-500 hover:bg-gray-100">\r\n
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>\r\n
+                            <span x-show="" class="absolute right-1 top-1 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[10px] font-bold text-white">\r\n
+                                0\r\n
+                            </span>\r\n
+                        </button>\r\n
+\r\n
+                        <div x-cloak x-show="notifOpen" class="absolute right-0 mt-2 w-80 rounded-xl border border-gray-200 bg-white shadow-lg">\r\n
+                            <div class="flex items-center justify-between border-b border-gray-100 px-4 py-3">\r\n
+                                <p class="text-sm font-semibold">Notificaciones</p>\r\n
+                                <form method="POST" action="http://localhost/notifications/read">\r\n
+                                    <input type="hidden" name="_token" value="Zc7omraPlkPsrt67cM5apcyOp3pM5YyUuEDihsK9" autocomplete="off">                                    <button class="text-xs text-brand-600 hover:underline">Marcar todas le├¡das</button>\r\n
+                                </form>\r\n
+                            </div>\r\n
+                            <div class="max-h-80 overflow-y-auto">\r\n
+                                                                    <p class="px-4 py-6 text-center text-sm text-gray-400">No tienes notificaciones.</p>\r\n
+                                                            </div>\r\n
+                            <a href="http://localhost/notifications" class="block border-t border-gray-100 px-4 py-2 text-center text-xs font-medium text-brand-600 hover:bg-gray-50">Ver todas</a>\r\n
+                        </div>\r\n
+                    </div>\r\n
+\r\n
+                    <div class="hidden items-center gap-2 rounded-lg bg-gray-100 px-3 py-1.5 sm:flex">\r\n
+                        <span class="text-sm text-gray-600">Dr. Harley Wolff DDS</span>\r\n
+                    </div>\r\n
+                </div>\r\n
+            </header>\r\n
+\r\n
+            <!-- Flash messages -->\r\n
+            \r\n
+            \r\n
+            <main class="flex-1 px-4 py-6 sm:px-6">\r\n
+                <div class="space-y-5">\n
+\n
+    <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">\n
+        <div>\n
+            <h2 class="text-xl font-bold text-gray-900">Vista previa de importaci├│n</h2>\n
+            <p class="text-sm text-gray-500">\n
+                0 fila(s) v├ílidas ┬À 4 con errores/duplicados.\n
+            </p>\n
+        </div>\n
+        <a href="http://localhost/import" class="rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-50">Elegir otro archivo</a>\n
+    </div>\n
+\n
+            <div class="rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">\n
+            ÔÜá´©Å Solo se importar├ín las filas v├ílidas. Las filas con errores o duplicadas ser├ín omitidas y listadas abajo.\n
+        </div>\n
+    \n
+    <div class="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">\n
+        <div class="max-h-96 overflow-auto">\n
+            <table class="min-w-full divide-y divide-gray-200 text-sm">\n
+                <thead class="sticky top-0 bg-gray-50">\n
+                    <tr>\n
+                        <th class="px-4 py-3 text-left text-xs font-semibold uppercase text-gray-500">#</th>\n
+                                                <th class="px-4 py-3 text-left text-xs font-semibold uppercase text-gray-500">Estado</th>\n
+                        <th class="px-4 py-3 text-left text-xs font-semibold uppercase text-gray-500">Errores</th>\n
+                    </tr>\n
+                </thead>\n
+                <tbody class="divide-y divide-gray-100">\n
+                                            <tr class="bg-red-50/50">\n
+                            <td class="px-4 py-2 text-gray-500">1</td>\n
+                                                        <td class="whitespace-nowrap px-4 py-2">\n
+                                                                    <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold bg-red-100 text-red-700">\r\n
+    Error\r\n
+</span>                                                            </td>\n
+                            <td class="max-w-56 px-4 py-2 text-xs text-red-600">Falta el n├║mero de caso, Falta la fecha de recepci├│n</td>\n
+                        </tr>\n
+                                            <tr class="bg-red-50/50">\n
+                            <td class="px-4 py-2 text-gray-500">2</td>\n
+                                                        <td class="whitespace-nowrap px-4 py-2">\n
+                                                                    <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold bg-red-100 text-red-700">\r\n
+    Error\r\n
+</span>                                                            </td>\n
+                            <td class="max-w-56 px-4 py-2 text-xs text-red-600">Falta el n├║mero de caso, Falta la fecha de recepci├│n</td>\n
+                        </tr>\n
+                                            <tr class="bg-red-50/50">\n
+                            <td class="px-4 py-2 text-gray-500">3</td>\n
+                                                        <td class="whitespace-nowrap px-4 py-2">\n
+                                                                    <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold bg-red-100 text-red-700">\r\n
+    Error\r\n
+</span>                                                            </td>\n
+                            <td class="max-w-56 px-4 py-2 text-xs text-red-600">Falta el n├║mero de caso, Falta la fecha de recepci├│n</td>\n
+                        </tr>\n
+                                            <tr class="bg-red-50/50">\n
+                            <td class="px-4 py-2 text-gray-500">4</td>\n
+                                                        <td class="whitespace-nowrap px-4 py-2">\n
+                                                                    <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold bg-red-100 text-red-700">\r\n
+    Error\r\n
+</span>                                                            </td>\n
+                            <td class="max-w-56 px-4 py-2 text-xs text-red-600">Falta el n├║mero de caso, Falta la fecha de recepci├│n</td>\n
+                        </tr>\n
+                                    </tbody>\n
+            </table>\n
+        </div>\n
+    </div>\n
+\n
+    </div>\n
+            </main>\r\n
+\r\n
+            <footer class="border-t border-gray-200 px-6 py-4 text-center text-xs text-gray-400">\r\n
+                Bit├ícora GSI ┬À Uso interno del ├írea GSI\r\n
+            </footer>\r\n
+        </div>\r\n
+    </div>\r\n
+\r\n
+    </body>\r\n
+</html>
+
+  To contain: IMP-2
+
+  at tests\Feature\ImportExportTest.php:91
+     87Ôûò             'file' => $file,
+     88Ôûò         ]);
+     89Ôûò 
+     90Ôûò         $response->assertOk();
+  Ô×£  91Ôûò         $response->assertSee('IMP-2');
+     92Ôûò         $response->assertSee('Falta el n├║mero de caso');
+     93Ôûò     }
+     94Ôûò 
+     95Ôûò     public function test_import_store_imports_valid_rows_and_skips_duplicates(): void
+
+
+  Tests:    3 failed, 36 passed (80 assertions)
+  Duration: 4.94s
+
+EXIT=1

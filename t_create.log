@@ -1,0 +1,25 @@
+﻿
+   FAIL  Tests\Feature\DailyCaseTest
+  Ô¿» analyst can create a case                                                                                                                                                 0.45s  
+  ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ  
+   FAILED  Tests\Feature\DailyCaseTest > analyst can create a case                                                                                                                   
+  Failed asserting that null is not null.
+
+  at tests\Feature\DailyCaseTest.php:45
+     41Ôûò         $this->assertDatabaseHas('daily_cases', ['case_number' => 'TCK-100']);
+     42Ôûò 
+     43Ôûò         $case = DailyCase::where('case_number', 'TCK-100')->first();
+     44Ôûò         $this->assertNotNull($case->internal_id);
+  Ô×£  45Ôûò         $this->assertNotNull($case->created_by);
+     46Ôûò 
+     47Ôûò         $this->assertDatabaseHas('audits', [
+     48Ôûò             'auditable_type' => DailyCase::class,
+     49Ôûò             'auditable_id' => $case->id,
+
+  1   tests\Feature\DailyCaseTest.php:45
+
+
+  Tests:    1 failed (4 assertions)
+  Duration: 0.65s
+
+EXIT=1

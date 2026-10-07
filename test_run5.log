@@ -1,0 +1,152 @@
+﻿
+   PASS  Tests\Unit\ExampleTest
+  Ô£ô that true is true
+
+   PASS  Tests\Feature\AuthTest
+  Ô£ô login screen can be rendered                                                                                                                                              0.34s  
+  Ô£ô user can login with valid credentials                                                                                                                                     0.06s  
+  Ô£ô user cannot login with invalid credentials                                                                                                                                0.23s  
+  Ô£ô inactive user cannot login                                                                                                                                                0.02s  
+  Ô£ô user can logout                                                                                                                                                           0.02s  
+  Ô£ô guest is redirected to login                                                                                                                                              0.02s  
+
+   PASS  Tests\Feature\AuthorizationTest
+  Ô£ô only admin can access users management                                                                                                                                    0.07s  
+  Ô£ô only admin can access settings                                                                                                                                            0.04s  
+  Ô£ô analyst cannot create users                                                                                                                                               0.03s  
+  Ô£ô dashboard restricts analyst to own data filter                                                                                                                            0.08s  
+
+   PASS  Tests\Feature\DailyCaseTest
+  Ô£ô analyst can create a case                                                                                                                                                 0.04s  
+  Ô£ô duplicate case number is rejected                                                                                                                                         0.03s  
+  Ô£ô status change is audited                                                                                                                                                  0.03s  
+  Ô£ô closing a case sets finished at                                                                                                                                           0.03s  
+  Ô£ô admin can delete a case using soft delete                                                                                                                                 0.02s  
+  Ô£ô analyst cannot delete a case                                                                                                                                              0.02s  
+  Ô£ô time calculations are correct                                                                                                                                             0.02s  
+  Ô£ô overdue scope detects vencidos                                                                                                                                            0.02s  
+  Ô£ô semaforo flag returns red for overdue case                                                                                                                                0.02s  
+
+   PASS  Tests\Feature\ExampleTest
+  Ô£ô the application redirects unauthenticated users to login                                                                                                                  0.02s  
+
+   FAIL  Tests\Feature\ImportExportTest
+  Ô£ô export csv returns file                                                                                                                                                   0.03s  
+  Ô£ô export xlsx returns file                                                                                                                                                  0.11s  
+  Ô£ô export pdf returns file                                                                                                                                                   0.30s  
+  Ô¿» import preview shows valid and duplicate rows                                                                                                                             1.60s  
+  Ô£ô import store imports valid rows and skips duplicates                                                                                                                      0.02s  
+
+   PASS  Tests\Feature\ProjectTest
+  Ô£ô user can create a project                                                                                                                                                 0.03s  
+  Ô£ô project progress must be between 0 and 100                                                                                                                                0.02s  
+  Ô£ô task creation updates project progress                                                                                                                                    0.03s  
+  Ô£ô project is overdue when estimated date passed                                                                                                                             0.02s  
+  Ô£ô task is overdue detection                                                                                                                                                 0.02s  
+  Ô£ô admin can delete project with soft delete                                                                                                                                 0.02s  
+  Ô£ô analyst can only update own projects                                                                                                                                      0.04s  
+
+   PASS  Tests\Feature\ReportTest
+  Ô£ô reports page loads for analyst                                                                                                                                            0.05s  
+  Ô£ô dashboard computes kpis from database                                                                                                                                     0.06s  
+  Ô£ô dashboard shows my cases section                                                                                                                                          0.05s  
+  Ô£ô monthly report loads                                                                                                                                                      0.04s  
+  Ô£ô case filters apply to report query                                                                                                                                        0.04s  
+  Ô£ô projects appear in reports                                                                                                                                                0.04s  
+  ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ  
+   FAILED  Tests\Feature\ImportExportTest > import preview shows valid and duplicate rows                                                                                            
+  Expected response status code [200] but received 500.
+Failed asserting that 500 is identical to 200.
+
+The following exception occurred during the last request:
+
+TypeError: str_replace(): Argument #2 ($replace) must be of type string when argument #1 ($search) is a string in C:\Users\pc\Downloads\bitacora auto\app\Services\ImportService.php:266
+Stack trace:
+#0 C:\Users\pc\Downloads\bitacora auto\app\Services\ImportService.php(266): str_replace()
+#1 [internal function]: App\Services\ImportService->normalizeKey()
+#2 C:\Users\pc\Downloads\bitacora auto\app\Services\ImportService.php(83): array_map()
+#3 C:\Users\pc\Downloads\bitacora auto\app\Services\ImportService.php(100): App\Services\ImportService->readFile()
+#4 C:\Users\pc\Downloads\bitacora auto\app\Http\Controllers\ImportController.php(26): App\Services\ImportService->preview()
+#5 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php(46): App\Http\Controllers\ImportController->preview()
+#6 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Routing\Route.php(265): Illuminate\Routing\ControllerDispatcher->dispatch()
+#7 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Routing\Route.php(211): Illuminate\Routing\Route->runController()
+#8 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Routing\Router.php(822): Illuminate\Routing\Route->run()
+#9 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Illuminate\Routing\Router->{closure:Illuminate\Routing\Router::runRouteWithinStack():821}()
+#10 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php(50): Illuminate\Pipeline\Pipeline->{closure:Illuminate\Pipeline\Pipeline::prepareDestination():178}()
+#11 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Routing\Middleware\SubstituteBindings->handle()
+#12 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Auth\Middleware\Authenticate.php(63): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}()
+#13 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Auth\Middleware\Authenticate->handle()
+#14 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken.php(87): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}()
+#15 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\VerifyCsrfToken->handle()
+#16 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\View\Middleware\ShareErrorsFromSession.php(48): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}()
+#17 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\View\Middleware\ShareErrorsFromSession->handle()
+#18 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(120): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}()
+#19 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(63): Illuminate\Session\Middleware\StartSession->handleStatefulRequest()
+#20 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Session\Middleware\StartSession->handle()
+#21 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse.php(36): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}()
+#22 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse->handle()
+#23 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\EncryptCookies.php(74): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}()
+#24 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Cookie\Middleware\EncryptCookies->handle()
+#25 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}()
+#26 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Routing\Router.php(821): Illuminate\Pipeline\Pipeline->then()
+#27 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Routing\Router.php(800): Illuminate\Routing\Router->runRouteWithinStack()
+#28 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Routing\Router.php(764): Illuminate\Routing\Router->runRoute()
+#29 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Routing\Router.php(753): Illuminate\Routing\Router->dispatchToRoute()
+#30 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(200): Illuminate\Routing\Router->dispatch()
+#31 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Illuminate\Foundation\Http\Kernel->{closure:Illuminate\Foundation\Http\Kernel::dispatchToRouter():197}()
+#32 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->{closure:Illuminate\Pipeline\Pipeline::prepareDestination():178}()
+#33 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php(31): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle()
+#34 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull->handle()
+#35 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}()
+#36 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php(51): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle()
+#37 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\TrimStrings->handle()
+#38 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Http\Middleware\ValidatePostSize.php(27): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}()
+#39 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\ValidatePostSize->handle()
+#40 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php(109): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}()
+#41 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance->handle()
+#42 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Http\Middleware\HandleCors.php(61): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}()
+#43 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\HandleCors->handle()
+#44 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php(58): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}()
+#45 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\TrustProxies->handle()
+#46 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\InvokeDeferredCallbacks.php(22): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}()
+#47 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\InvokeDeferredCallbacks->handle()
+#48 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Http\Middleware\ValidatePathEncoding.php(26): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}()
+#49 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\ValidatePathEncoding->handle()
+#50 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}()
+#51 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(175): Illuminate\Pipeline\Pipeline->then()
+#52 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(144): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter()
+#53 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Foundation\Testing\Concerns\MakesHttpRequests.php(607): Illuminate\Foundation\Http\Kernel->handle()
+#54 C:\Users\pc\Downloads\bitacora auto\vendor\laravel\framework\src\Illuminate\Foundation\Testing\Concerns\MakesHttpRequests.php(397): Illuminate\Foundation\Testing\TestCase->call()
+#55 C:\Users\pc\Downloads\bitacora auto\tests\Feature\ImportExportTest.php(86): Illuminate\Foundation\Testing\TestCase->post()
+#56 C:\Users\pc\Downloads\bitacora auto\vendor\phpunit\phpunit\src\Framework\TestCase.php(1667): Tests\Feature\ImportExportTest->test_import_preview_shows_valid_and_duplicate_rows()
+#57 C:\Users\pc\Downloads\bitacora auto\vendor\phpunit\phpunit\src\Framework\TestCase.php(519): PHPUnit\Framework\TestCase->runTest()
+#58 C:\Users\pc\Downloads\bitacora auto\vendor\phpunit\phpunit\src\Framework\TestRunner\TestRunner.php(87): PHPUnit\Framework\TestCase->runBare()
+#59 C:\Users\pc\Downloads\bitacora auto\vendor\phpunit\phpunit\src\Framework\TestCase.php(365): PHPUnit\Framework\TestRunner->run()
+#60 C:\Users\pc\Downloads\bitacora auto\vendor\phpunit\phpunit\src\Framework\TestSuite.php(369): PHPUnit\Framework\TestCase->run()
+#61 C:\Users\pc\Downloads\bitacora auto\vendor\phpunit\phpunit\src\Framework\TestSuite.php(369): PHPUnit\Framework\TestSuite->run()
+#62 C:\Users\pc\Downloads\bitacora auto\vendor\phpunit\phpunit\src\Framework\TestSuite.php(369): PHPUnit\Framework\TestSuite->run()
+#63 C:\Users\pc\Downloads\bitacora auto\vendor\phpunit\phpunit\src\TextUI\TestRunner.php(64): PHPUnit\Framework\TestSuite->run()
+#64 C:\Users\pc\Downloads\bitacora auto\vendor\phpunit\phpunit\src\TextUI\Application.php(211): PHPUnit\TextUI\TestRunner->run()
+#65 C:\Users\pc\Downloads\bitacora auto\vendor\phpunit\phpunit\phpunit(104): PHPUnit\TextUI\Application->run()
+#66 {main}
+
+----------------------------------------------------------------------------------
+
+str_replace(): Argument #2 ($replace) must be of type string when argument #1 ($search) is a string
+
+  at tests\Feature\ImportExportTest.php:90
+     86Ôûò         $response = $this->actingAs($user)->post(route('import.preview'), [
+     87Ôûò             'file' => $file,
+     88Ôûò         ]);
+     89Ôûò 
+  Ô×£  90Ôûò         $response->assertOk();
+     91Ôûò         $response->assertSee('IMP-2');
+     92Ôûò         $response->assertSee('Falta el n├║mero de caso');
+     93Ôûò     }
+     94Ôûò
+
+
+  Tests:    1 failed, 38 passed (81 assertions)
+  Duration: 3.92s
+
+EXIT=1

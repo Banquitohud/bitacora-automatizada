@@ -7,8 +7,8 @@ use App\Models\DailyCase;
 use App\Services\ReportService;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Maatwebsite\Excel\Facades\Excel;
+use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class ExportController extends Controller
@@ -17,7 +17,7 @@ class ExportController extends Controller
     {
     }
 
-    public function export(Request $request, string $format): Response|StreamedResponse
+    public function export(Request $request, string $format): SymfonyResponse|StreamedResponse
     {
         $filters = $request->only(['from', 'to', 'analyst_id', 'status_id', 'request_type_id', 'application_id', 'priority_id', 'project_id']);
 
@@ -31,7 +31,7 @@ class ExportController extends Controller
         };
     }
 
-    public function monthlyPdf(Request $request): Response
+    public function monthlyPdf(Request $request): SymfonyResponse
     {
         $month = $request->input('month', now()->format('Y-m'));
         $summary = $this->report->monthlySummary($month);
@@ -88,7 +88,7 @@ class ExportController extends Controller
         }, $filename.'.csv');
     }
 
-    protected function pdf(array $filters, string $filename): Response
+    protected function pdf(array $filters, string $filename): SymfonyResponse
     {
         $cases = $this->report->filteredCaseQuery($filters)->get();
         $flow = $this->report->flowReport($filters);

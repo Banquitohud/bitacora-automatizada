@@ -26,12 +26,24 @@ class DailyCaseController extends Controller
 {
     public function __construct(private readonly AuditService $audit)
     {
-        $this->authorizeResource(DailyCase::class, 'daily_case');
     }
 
     public function index(Request $request): View
     {
-        $filters = $request->only(['search', 'status_id', 'request_type_id', 'application_id', 'priority_id', 'analyst_id', 'project_id', 'from', 'to', 'flag']);
+        $this->authorize('viewAny', DailyCase::class);
+
+        $filters = array_merge([
+            'search' => null,
+            'status_id' => null,
+            'request_type_id' => null,
+            'application_id' => null,
+            'priority_id' => null,
+            'analyst_id' => null,
+            'project_id' => null,
+            'from' => null,
+            'to' => null,
+            'flag' => null,
+        ], $request->only(['search', 'status_id', 'request_type_id', 'application_id', 'priority_id', 'analyst_id', 'project_id', 'from', 'to', 'flag']));
 
         $cases = DailyCase::query()
             ->with(['status', 'priority', 'requestType', 'application', 'analyst', 'projects'])
@@ -55,11 +67,15 @@ class DailyCaseController extends Controller
 
     public function create(): View
     {
+        $this->authorize('create', DailyCase::class);
+
         return $this->formView(new DailyCase(), 'daily_cases.create');
     }
 
     public function store(StoreDailyCaseRequest $request): RedirectResponse
     {
+        $this->authorize('create', DailyCase::class);
+
         $case = DB::transaction(function () use ($request) {
             $data = $this->caseData($request);
 
@@ -78,6 +94,8 @@ class DailyCaseController extends Controller
 
     public function show(DailyCase $dailyCase): View
     {
+        $this->authorize('view', $dailyCase);
+
         $dailyCase->load([
             'status', 'priority', 'requestType', 'application', 'profile', 'group', 'groupFamily',
             'analyst', 'createdBy', 'updatedBy', 'takenBy', 'closedBy', 'projects',
@@ -99,6 +117,8 @@ class DailyCaseController extends Controller
 
     public function update(UpdateDailyCaseRequest $request, DailyCase $dailyCase): RedirectResponse
     {
+        $this->authorize('update', $dailyCase);
+
         $old = $dailyCase->getAttributes();
 
         DB::transaction(function () use ($request, $dailyCase, $old) {
@@ -147,6 +167,8 @@ class DailyCaseController extends Controller
 
     public function destroy(DailyCase $dailyCase): RedirectResponse
     {
+        $this->authorize('delete', $dailyCase);
+
         $this->audit->deleted($dailyCase, 'el caso #'.($dailyCase->case_number ?: $dailyCase->id));
         $dailyCase->delete();
 
@@ -219,12 +241,30 @@ class DailyCaseController extends Controller
 
     private function caseData(Request $request): array
     {
-        $raw = $request->only([
-            'case_number', 'received_date', 'received_time', 'due_date', 'requester',
-            'affected_user', 'position', 'request_type_id', 'application_id', 'profile_id',
-            'permission', 'group_id', 'group_family_id', 'priority_id', 'status_id',
-            'analyst_id', 'concept', 'result', 'observations', 'comments',
-        ]);
+        $defaults = [
+            'case_number' => null,
+            'received_date' => null,
+            'received_time' => null,
+            'due_date' => null,
+            'requester' => null,
+            'affected_user' => null,
+            'position' => null,
+            'request_type_id' => null,
+            'application_id' => null,
+            'profile_id' => null,
+            'permission' => null,
+            'group_id' => null,
+            'group_family_id' => null,
+            'priority_id' => null,
+            'status_id' => null,
+            'analyst_id' => null,
+            'concept' => null,
+            'result' => null,
+            'observations' => null,
+            'comments' => null,
+        ];
+
+        $raw = array_merge($defaults, $request->only(array_keys($defaults)));
 
         $data = collect($raw)
             ->map(fn ($value) => ($value === '' || $value === null) ? null : $value)
@@ -236,6 +276,7 @@ class DailyCaseController extends Controller
         $data['updated_by'] = auth()->id();
 
         if ($request->isMethod('post')) {
+            $data['created_by'] = auth()->id();
             $data['internal_id'] = 'C-'.str_pad((string) ((DailyCase::withTrashed()->max('id') ?? 0) + 2), 6, '0', STR_PAD_LEFT);
         }
 

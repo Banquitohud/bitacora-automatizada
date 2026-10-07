@@ -1,0 +1,28 @@
+﻿
+   FAIL  Tests\Feature\DailyCaseTest
+  Ô¿» status change is audited                                                                                                                                                  1.84s  
+  ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ  
+   FAILED  Tests\Feature\DailyCaseTest > status change is audited                                                                                                                    
+  Failed asserting that a row in the table [audits] matches the attributes {
+    "auditable_id": 1,
+    "action": "status_changed"
+}.
+
+The table is empty.
+
+  at tests\Feature\DailyCaseTest.php:91
+     87Ôûò             'status_id' => $this->statusEnAnalisis->id,
+     88Ôûò             'analyst_id' => $user->id,
+     89Ôûò         ]);
+     90Ôûò 
+  Ô×£  91Ôûò         $this->assertDatabaseHas('audits', [
+     92Ôûò             'auditable_id' => $case->id,
+     93Ôûò             'action' => 'status_changed',
+     94Ôûò         ]);
+     95Ôûò     }
+
+
+  Tests:    1 failed (1 assertions)
+  Duration: 2.03s
+
+EXIT=1

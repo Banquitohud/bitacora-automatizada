@@ -12,14 +12,17 @@ use App\Models\Profile;
 use App\Models\RequestType;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Collection;
-use Maatwebsite\Excel\Facades\Excel;
+use PhpOffice\PhpSpreadsheet\IOFactory;
 
 class ImportService
 {
     /** Columnas esperadas: clave normalizada => campo del modelo */
     public const COLUMN_MAP = [
         'numero_caso' => 'case_number',
+        'numero_de_caso' => 'case_number',
+        'numero_de_caso_ticket' => 'case_number',
         'numero_caso_ticket' => 'case_number',
         'ticket' => 'case_number',
         'caso' => 'case_number',
@@ -59,21 +62,32 @@ class ImportService
      */
     public function readFile($file): array
     {
-        $rows = Excel::toArray(new \stdClass(), $file);
+        $path = $file instanceof UploadedFile ? $file->getRealPath() : $file;
 
-        // La primera hoja es la primera entrada del arreglo
-        $sheet = collect($rows)->first() ?? [];
-
-        if (empty($sheet)) {
-            return ['headers' => [], 'rows' => []];
+        if (! is_file($path)) {
+            return ['headers' => [], 'rows' => collect()];
         }
 
-        $headers = array_map([$this, 'normalizeKey'], (array) array_shift($sheet));
+        $reader = IOFactory::createReaderForFile($path);
+        $reader->setReadDataOnly(true);
 
-        $data = collect($sheet)
+        $spreadsheet = $reader->load($path);
+        $sheet = $spreadsheet->getActiveSheet();
+        // startRow auto-detecta, nullValue '' para celdas vacías, sin fórmulas, formatData true
+        $rows = $sheet->toArray(null, '', false, true);
+
+        if (empty($rows)) {
+            return ['headers' => [], 'rows' => collect()];
+        }
+
+        $headers = array_map([$this, 'normalizeKey'], (array) array_shift($rows));
+
+        $data = collect($rows)
             ->filter()
             ->map(fn ($row) => array_combine($headers, array_pad(array_values((array) $row), count($headers), '')))
             ->values();
+
+        $spreadsheet->disconnectWorksheets();
 
         return ['headers' => $headers, 'rows' => $data];
     }
@@ -246,9 +260,13 @@ class ImportService
 
     protected function normalizeKey(string $key): string
     {
-        $value = mb_strtolower(trim($key));
-        $value = preg_replace('/[^a-z0-9_]+/', '_', $value);
-        $value = trim($value, '_');
+        $value = trim($key);
+
+        // Quitar tildes para normalizar los encabezados (Número -> numero)
+        $value = str_replace($value, ['á', 'é', 'í', 'ó', 'ú', 'ü', 'ñ', 'Á', 'É', 'Í', 'Ó', 'Ú', 'Ü', 'Ñ'], ['a', 'e', 'i', 'o', 'u', 'u', 'n', 'A', 'E', 'I', 'O', 'U', 'U', 'N']);
+
+        $value = str($value)->slug();
+        $value = str_replace($value, '-', '_');
 
         return $value;
     }
